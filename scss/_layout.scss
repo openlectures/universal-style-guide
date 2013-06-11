@@ -1,0 +1,33 @@
+//// Global Declarations ////
+body {
+  @include outer-container;           // Sets a max-width on the body, defined in _grid-settings.scss
+}
+
+header,footer {
+  @include span-columns(16);        // Sets up the header and footer elements to span the page by default
+}
+
+header,footer {
+  background-color: $silver;
+  color: $complement;
+}
+
+//// Desktop Classes ////
+@include media($computer-up) {
+  article {
+    &:only-of-type:not(:only-child) { // Voodoo to select the article element in article-aside pair
+      @include span-columns(13);       // Expands the half-page column if it appears before the side column
+    }
+  }
+
+  aside {
+    @include span-columns(3.333);     // Defines the basic one-third column
+    &:only-of-type:not(:only-child) { // Voodoo to select the aside element in article-aside pairs
+      @include span-columns(3);       // Shrinks the half-page column if it appears before the side column
+    }
+  }
+}
+
+.box__body {
+  @include pad(1em);
+}

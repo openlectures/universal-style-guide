@@ -1,0 +1,9 @@
+a {
+  @include transition(color 150ms linear);
+  text-decoration: none !important;
+  color: $accent;
+  &:hover {
+    @include transition(color 150ms linear);
+    color: darken($accent,15%);
+  }
+}

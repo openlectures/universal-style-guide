@@ -1,0 +1,38 @@
+.pad__top--0 {
+  padding-top: 0;
+}
+
+.pad__bot--0 {
+  padding-bottom: 0;
+}
+
+.pad--0 {
+  @extend .pad__top--0;
+  @extend .pad__bot--0;
+}
+
+.pad__top--1 {
+  padding-top: 1em;
+}
+
+.pad__bot--1 {
+  padding-bottom: 1em;
+}
+
+.pad--1 {
+  @extend .pad__top--1;
+  @extend .pad__bot--1;
+}
+
+.pad__top--2 {
+  padding-top: 2em;
+}
+
+.pad__bot--2 {
+  padding-bottom: 2em;
+}
+
+.pad--1 {
+  @extend .pad__top--2;
+  @extend .pad__bot--2;
+}

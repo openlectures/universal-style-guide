@@ -1,0 +1,118 @@
+//// VARIABLES ////
+$base-font-size: em(20);
+$scale: 1.618;
+
+//// MIXINS ////
+@mixin css-hyphens($val) {
+  // Accepted values: [ none | manual | auto ]
+  -webkit-hyphens: $val; // Safari 5.1 thru 6, iOS 4.2 thru 6
+  -moz-hyphens: $val; // Firefox 16 thru 20
+  -ms-hyphens: $val; // IE10
+  -o-hyphens: $val; // PRESTO...haha LOL
+  hyphens: $val; // W3C standard
+}
+
+//// CLASSES ////
+body {
+  @extend .font--concrete;
+  @include css-hyphens(auto);
+  color: $silver;
+  line-height: $scale;
+  word-wrap: break-word;
+  // Changes the body font-size on different devices
+  @include media($mobile) {
+    font-size: 90%;
+  }
+  @include media($tablet) {
+    font-size: 95%;
+  }
+  @include media($computer) {
+    font-size: 100%;
+  }
+  @include media($tv) {
+    font-size: 150%;
+  }
+}
+
+abbr,acronym,blockquote,code {
+  @include css-hyphens(none);
+}
+
+.font--light {
+  font-weight: 100;
+}
+
+// Heading Classes //
+h1,h2,h3,h4,h5,h6 {
+  @extend .font--miso;
+  -webkit-font-smoothing: antialiased;        // Make fonts look nice and crisp on WebKit
+  -ms-font-smoothing:     antialiased;        // Make things look barely acceptable on I-bloody-E
+  -o-font-smoothing:      antialiased;        // Make fonts look nice and crisp on Opera
+  font-smoothing:         antialiased;        // Prefixless fallback for antialiased font rendering
+  text-rendering:         optimizeLegibility; // What it says, you can read can't you?
+  line-height: 1;
+  margin: 0;
+}
+
+h3 {
+  font-size: modular-scale($base-font-size,1,$scale);
+}
+
+h2 {
+  font-size: modular-scale($base-font-size,2,$scale);
+}
+
+h1 {
+  font-size: modular-scale($base-font-size,3,$scale);
+}
+
+// Paragraph Classes
+p {
+  -webkit-font-smoothing: antialiased;        // Make fonts look nice and crisp on WebKit
+  -ms-font-smoothing:     antialiased;        // Make things look barely acceptable on I-bloody-E
+  -o-font-smoothing:      antialiased;        // Make fonts look nice and crisp on Opera
+  font-smoothing:         antialiased;        // Prefixless fallback for antialiased font rendering
+  text-rendering:         optimizeLegibility; // What it says, you can read can't you?
+  font-size: modular-scale($base-font-size,0,$scale);
+  & small {
+    font-size: modular-scale($base-font-size,-1,$scale);
+  }
+  // Expands the link selection area on mobile devices
+  & a {
+    @include media($mobile) {
+      margin: -.5em;
+      padding: .5em;
+      position: relative;
+    }
+  }
+}
+
+small {
+  font-size: 75%;
+  line-height: 0.5;
+}
+
+// List Classes
+ul,ol {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+li {
+  @extend .font--miso;
+  @extend .font--scale0;
+}
+
+.checkpoint-selector {
+  & > li:not(:first-child) {
+    margin-top: 1em;
+  }
+}
+
+// Fancy Classes
+.text--stroke {
+  font-weight: bold;
+  font-color: $background-color;
+  outline: $complement solid 0.5em;
+}

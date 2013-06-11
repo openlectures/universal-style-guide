@@ -1,0 +1,26 @@
+//// HEX CODES ////
+
+$cantaloupe:  #FC6;
+$honeydew:    #CF6;
+$accent:      #3CC;
+$salmon:      #F66;
+$silver:      #CCC;
+$complement:  #333;
+$background-color: #FFF;
+
+//// TEXT-COLOR MODIFIERS ////
+
+.text--cantaloupe { color: $cantaloupe; }
+.text--honeydew   { color: $honeydew; }
+.text--accent     { color: $accent; }
+.text--salmon     { color: $salmon; }
+.text--silver     { color: $silver; }
+
+//// BACKGROUND-COLOR MODIFIERS ////
+
+.bg--cantaloupe { background-color: $cantaloupe; }
+.bg--honeydew   { background-color: $honeydew; }
+.bg--accent     { background-color: $accent; }
+.bg--salmon     { background-color: $salmon; }
+.bg--silver     { background-color: $silver; }
+.bg--complement { background-color: $complement; }

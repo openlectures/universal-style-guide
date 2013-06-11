@@ -1,0 +1,20 @@
+@import "../neat/neat-helpers";
+
+//// VARIABLES ////
+$screen-width:    1440; // Optimal/chosen screen-width
+$screen-columns:  16;   // Number of columns spanning screen-width (gutters count as columns for this one)
+
+//// GRID CALCULATIONS ////
+$column: em($screen-width/$screen-columns); // Calculates the size of each column assuming no gutter
+$gutter: 0em;
+// $gutter: $column;                           // Creates a gutter equal to the width of the column
+$grid-columns: $screen-columns;             // Sets the grid columns to be the gutter columns + normal columns
+$max-width: $column*$grid-columns;          // Calculates the maximum width of the screen based on the screen width
+
+//// BREAKPOINTS ////
+$mobile:      new-breakpoint(max-width em(640));                      // Breakpoint for smartphones
+$tablet:      new-breakpoint(min-width em(641) max-width em(1023));   // Breakpoint for tablets and landscape HiDPi smartphones
+$tablet-up:   new-breakpoint(min-width em(641));                      // Breakpoint for tablets and above
+$computer:    new-breakpoint(min-width em(1024) max-width em(1440));  // Breakpoint for computers and landscape HiDPi tablets
+$computer-up: new-breakpoint(min-width em(1024));                     // Breakpoint for computers and above
+$tv:          new-breakpoint(min-width em(1441));                     // Breakpoint for large/high-resolution screens

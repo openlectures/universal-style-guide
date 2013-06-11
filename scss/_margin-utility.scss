@@ -1,0 +1,38 @@
+.margin__top--0 {
+  margin-top: 0;
+}
+
+.margin__bot--0 {
+  margin-bottom: 0;
+}
+
+.margin--0 {
+  @extend .margin__top--0;
+  @extend .margin__bot--0;
+}
+
+.margin__top--1 {
+  margin-top: 1em;
+}
+
+.margin__bot--1 {
+  margin-bottom: 1em;
+}
+
+.margin--1 {
+  @extend .margin__top--1;
+  @extend .margin__bot--1;
+}
+
+.margin__top--2 {
+  margin-top: 2em;
+}
+
+.margin__bot--2 {
+  margin-bottom: 2em;
+}
+
+.margin--1 {
+  @extend .margin__top--2;
+  @extend .margin__bot--2;
+}

@@ -1,0 +1,170 @@
+input,
+input[type="search"],                                         // Force settings for type="search" to override webkit styles
+textarea,
+select,
+progress,
+fieldset,
+button {
+  outline: none;                                              // Removes the webkit focus ring around the form-field
+  background: none;                                           // Removes the background from the form-field
+  -webkit-appearance: none;                                   // Prevents webkit from being smart and adding its own styling
+  -moz-appearance: none;                                      // Prevents firefox from being smart and adding its own styling
+  appearance: none;                                           // Just tells everything to GTFO :D
+  border: 0 none white;                                       // Removes all borders from the form-field
+  border-radius: 0;                                           // Removes any border radii, especially for select elements
+  margin: 0;                                                  // Removes any margins the browser's default styles may add
+  padding: 0;                                                 // Removes any padding the browser's default styles may add
+  @include box-sizing(border-box);                            // Sets border-box sizing on the form-field so it plays nice with margins
+  @include fill-parent;                                       // Expands the field to fill the width of the parent container
+  font-family: inherit;                                       // Inherits the font from the parent container. Not doing this means it uses browser defaults
+  font-weight: 100;                                           // Thins out the font for legibility
+  &:not(:first-child) {
+    margin-top: 1em;                                          // Spaces out form fields when they're stacked on each other
+  }
+}
+
+input:not([type="submit"]):not([type="reset"]),
+textarea,
+select {
+  font-size: 2em;                                             // Increases the font-size for legibility when filling up forms
+  text-overflow: ellipsis;                                    // Adds a '...' when text overflows the field
+  @include pad(0 $field-padding 0 $field-padding);            // Adds a bit of padding to the left and right of the field
+  border-bottom: $border-width solid $border-color;           // Adds a colored line below each field
+  &:focus {
+    border-bottom: $border-width solid $border-focus-color;   // Changes the color of the line when focus is given to the field
+    @include placeholder {
+      @include transition(opacity 300ms linear);                  // Tells the browser to animate the opacity change on focus states
+      opacity: 0.2;                                               // Decreases the opacity of the placeholder so it doesn't distract the user
+    }
+  }
+  // Uses SVG in a data URI to add a check mark when the result is valid
+  // The color of the check mark must be manually changed in <svg style="fill:#33CCCC">
+  &.show-validation:valid {
+    background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" style="fill:#33CCCC" width="95.453" height="100"><polygon points="94.587,27.48 31.657,86.15 31.217,85.68 18.847,72.41 0.566,52.81 14.106,40.19 32.387,59.79 81.776,13.74"/></svg>') no-repeat right center;
+    background-size: contain;                                 // Expands the image to fit within the bounds of the field
+    background-origin: content-box;                           // Aligns the image to the content boundaries
+  }
+  &:invalid {
+    border-bottom: $border-width solid $border-invalid-color; // Changes the color of the line when focus is given to the field
+  }
+  &:disabled {
+    cursor: not-allowed;
+    border-bottom: $border-width solid $border-disabled-color;
+  }
+  @include transition(border 150ms linear);                   // Tells the browser to animate the color change on focus states
+}
+
+label, legend {
+  @include pad(0 $field-padding*2 0 $field-padding*2);        // Adds some padding to the labels so they line up with the fields
+  font-size: 85%;                                             // Equivalent to setting <small> on the label content
+}
+
+::-ms-clear {                                                 // Pseudo-element for the field clear function on IE
+  color: $border-focus-color;                                 // Changes the input[type=text] clear button in IE10 to match the focus color
+}
+
+::-ms-reveal {                                                // Pseudo-element for the reveal form function on IE
+  color: $border-focus-color;                                 // Changes the input[type=password] reveal button in IE10 to match the focus color
+}
+
+input[type="file"] {
+  &::-webkit-file-upload-button {                             // Pseudo-element for the file-upload button on Webkit
+    background: none;                                         // Removes the background from the upload button
+    border: none;                                             // Removes the beveled border from the upload button
+    cursor: pointer;                                          // Changes the cursor to a pointing hand when over the field
+    padding: 0;                                               // Removes all the padding on the field since the chrome adds its own
+    padding-right: 1em;                                       // Moves the file path to the right to give the button space
+    font-family: inherit;                                     // Inherits the font from the parent container. Not doing this means it uses browser defaults
+    color: $border-color;                                     // Sets the font-color to the border color
+  }
+  &::-ms-browse {                                             // Pseudo-element for the file-upload button on IE
+    background: none;                                         // Removes the background from the upload button
+    border: none;                                             // Removes the beveled border from the upload button
+    cursor: pointer;                                          // Changes the cursor to a pointing hand when over the field
+    padding: 0;                                               // Removes all the padding on the field since the chrome adds its own
+    padding-right: 1em;                                       // Moves the file path to the right to give the button space
+    font-family: inherit;                                     // Inherits the font from the parent container. Not doing this means it uses browser defaults
+    color: $border-color;                                     // Sets the font-color to the border color
+  }
+  &:disabled {
+    &::-webkit-file-upload-button {
+      cursor: not-allowed;
+      color: $border-disabled-color;
+    }
+    &::-ms-browse {
+      color: $border-disabled-color;
+    }
+  }
+}
+
+progress {
+  &::-webkit-progress-bar {                                   // Pseudo-element for the main bar element on Webkit
+    border-radius: $round-radius;                             // Rounds off the bar to match the look of the buttons
+    border: 0.15em solid $border-color;                       // Adds a thin border so people know what max progress is
+    background: none;                                         // Removes the background from the main bar element
+  }
+  &::-webkit-progress-value {                                 // Pseudo-element for the progress bar on Webkit
+    background: $border-color;                                // Changes the progress bar color to the border color on Webkit
+    border-radius: 0 $round-radius/4 $round-radius/4 0;       // Makes the current progress position more angular and well defined
+    @include transition(width 200ms linear);                  // Allows for progress changes to animate nicely
+  }
+  &::-moz-progress-bar {                                      // Pseudo-element for the progress bar on Firefox
+    background: $border-color;                                // Changes the progress bar color to the border color on Firefox
+    @include transition(width 200ms linear);                  // Allows for progress changes to animate nicely
+  }
+  &::-ms-fill {                                               // Pseudo-element for the progress bar on IE
+    background: $border-color;                                // Changes the progress bar color to the border color on IE
+    @include transition(width 200ms linear);                  // Allows for progress changes to animate nicely
+  }
+}
+
+input[type="number"] {
+  &::-webkit-inner-spin-button {                              // Pseudo-element for the inner spinner buttons on Webkit
+    -webkit-appearance: none;                                 // Hides the spinner button because it looks totally ridiculous
+  }
+  &::-webkit-outer-spin-button {                              // Pseudo-element for the outer spinner buttons on Webkit
+    -webkit-appearance: none;                                 // Hides the spinner button because it looks totally ridiculous
+  }
+}
+
+input[type="date"] {
+  padding-right: 0;                                           // Removes padding from the right since the calendar indicator already has padding
+  &::-webkit-inner-spin-button {                              // Pseudo-element for the spinner buttons on Webkit
+    display: none;                                            // Hides the spinner button because it looks totally ridiculous
+  }
+  &::-webkit-calendar-picker-indicator {                      // Pseudo-element for the calendar selection caret on Webkit
+    color: $border-color;                                     // Changes the down caret to match the border color
+  }
+  &:disabled {
+    &::-webkit-calendar-picker-indicator {                      // Pseudo-element for the calendar selection caret on Webkit
+      pointer-events: none;
+      color: $border-disabled-color;                                     // Changes the down caret to match the border color
+    }
+  }
+}
+
+// Uses SVG in a data URI to add a down-caret to the select dropdown
+// The color of the caret for both native and focus states must be manually changed in <svg style="fill:#33CCCC">
+select:not([multiple]) {
+  background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" style="fill:#33CCCC;" width="100" height="100"><path d="M50.111 72.659c-1.061 0-2.078-.422-2.829-1.172l-30.007-30.013c-1.562-1.562-1.562-4.095.001-5.657 1.563-1.562 4.096-1.562 5.657 0l27.178 27.185 27.178-27.185c1.562-1.562 4.095-1.562 5.657 0 1.562 1.562 1.562 4.094.001 5.657l-30.007 30.013c-.751.75-1.768 1.172-2.829 1.172z"/></svg>') no-repeat right center;
+  background-size: contain;                                   // Sets the arrow to expand as large as possible within the field
+  background-origin: content-box;                             // Aligns the image to the content boundaries
+  &:focus {
+    background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" style="fill:#339999;" width="100" height="100"><path d="M50.111 72.659c-1.061 0-2.078-.422-2.829-1.172l-30.007-30.013c-1.562-1.562-1.562-4.095.001-5.657 1.563-1.562 4.096-1.562 5.657 0l27.178 27.185 27.178-27.185c1.562-1.562 4.095-1.562 5.657 0 1.562 1.562 1.562 4.094.001 5.657l-30.007 30.013c-.751.75-1.768 1.172-2.829 1.172z"/></svg>') no-repeat right center;
+    background-size: contain;                                 // Sets the arrow to expand as large as possible within the field
+    background-origin: content-box;                           // Aligns the image to the content boundaries
+  }
+  &::-ms-expand {                                             // Pseudo-element for the dropdown selector arrow on IE
+    color: $border-color;                                     // Changes the select dropdown arrow in IE10 to match the border color
+  }
+}
+
+textarea {
+  resize: vertical;                                           // Limits the textarea resizing control to work only vertically (and not horizontally)
+  min-height: 2.5em;                                          // Ensures that a textarea is distinguishable from a text field by giving it at least two lines
+  max-height: 100%;                                           // Prevents a textarea from stretching beyond the height of the screen
+  overflow: auto;                                             // Legacy setting to hide scrollbars when there is nothing to scroll
+  &[contenteditable] {
+    -webkit-appearance: none;
+  }
+}
