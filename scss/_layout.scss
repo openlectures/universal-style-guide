@@ -1,33 +1,50 @@
-//// Global Declarations ////
+* {
+  box-sizing: border-box;
+}
+
+html,body {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
-  @include outer-container;           // Sets a max-width on the body, defined in _grid-settings.scss
+  display: flex;
+  flex-direction: row;
 }
 
-header,footer {
-  @include span-columns(16);        // Sets up the header and footer elements to span the page by default
+main {
+  width: calc(100%*0.618);
 }
 
-header,footer {
-  background-color: $silver;
-  color: $complement;
+.main--video {
+  @extend %video--responsiveWrapper;
 }
 
-//// Desktop Classes ////
-@include media($computer-up) {
-  article {
-    &:only-of-type:not(:only-child) { // Voodoo to select the article element in article-aside pair
-      @include span-columns(13);       // Expands the half-page column if it appears before the side column
-    }
-  }
+.main--content {
+  padding-left: calc(100%/9);
+  padding-right: calc(100%/9);
 
-  aside {
-    @include span-columns(3.333);     // Defines the basic one-third column
-    &:only-of-type:not(:only-child) { // Voodoo to select the aside element in article-aside pairs
-      @include span-columns(3);       // Shrinks the half-page column if it appears before the side column
-    }
-  }
+  padding-top: 8.33vh;
 }
 
-.box__body {
-  @include pad(1em);
+.main--title {
+  @extend %font--size__3;
+  margin-top: 0;
+  margin-bottom: 3rem;
+
+  text-align: right;
+}
+
+.main--description {
+  @extend %font--roboto;
+  @extend %font--size__2;
+}
+
+.main--status {
+  @extend %color--text__accent;
+  @extend %font--size__2;
+  @extend %margin--0;
+  letter-spacing: 0;
+
+  text-align: right;
 }

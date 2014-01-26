@@ -1,59 +1,35 @@
-.hidden-phone {
-  @include media($mobile) {
-    display: none !important;
-  }
-  @include media($tablet) {
-    display: inline-block;
-  }
-  @include media($computer) {
-    display: inline-block;
-  }
+%hidden-phone {
+  @include media($mobile)   { display: none !important; }
+  @include media($tablet)   { display: inline-block;    }
+  @include media($computer) { display: inline-block;    }
 }
 
-.hidden-computer {
-  @include media($mobile) {
-    display: inline-block
-  }
-  @include media($tablet) {
-    display: inline-block;
-  }
-  @include media($computer) {
-    display: none !important;
-  }
+%show-phone {
+  @include media($mobile)   { display: inline-block;    }
+  @include media($tablet)   { display: none !important; }
+  @include media($computer) { display: none !important; }
 }
 
-.show-phone {
-  @include media($mobile) {
-    display: inline-block;
-  }
-  @include media($tablet) {
-    display: none !important;
-  }
-  @include media($computer) {
-    display: none !important;
-  }
+%hidden-tablet {
+  @include media($mobile)   { display: inline-block;    }
+  @include media($tablet)   { display: none !important; }
+  @include media($computer) { display: inline-block;    }
 }
 
-.show-tablet {
-  @include media($mobile) {
-    display: none !important;
-  }
-  @include media($tablet) {
-    display: inline-block;
-  }
-  @include media($computer) {
-    display: none !important;
-  }
+%show-tablet {
+  @include media($mobile)   { display: none !important; }
+  @include media($tablet)   { display: inline-block;    }
+  @include media($computer) { display: none !important; }
 }
 
-.show-computer {
-  @include media($mobile) {
-    display: none !important;
-  }
-  @include media($tablet) {
-    display: none !important;
-  }
-  @include media($computer) {
-    display: inline-block;
-  }
+%hidden-computer {
+  @include media($mobile)   { display: inline-block;    }
+  @include media($tablet)   { display: inline-block;    }
+  @include media($computer) { display: none !important; }
+}
+
+%show-computer {
+  @include media($mobile)   { display: none !important; }
+  @include media($tablet)   { display: none !important; }
+  @include media($computer) { display: inline-block;    }
 }

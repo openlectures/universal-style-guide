@@ -1,9 +1,18 @@
 a {
-  @include transition(color 150ms linear);
+  @include transition(color 150ms ease-in-out);
+  @extend %color--link__normal;
   text-decoration: none !important;
-  color: $accent;
   &:hover {
-    @include transition(color 150ms linear);
-    color: darken($accent,15%);
+    @include transition(color 150ms ease-in-out);
+    @extend %color--link__hover;
+  }
+}
+
+// Expands the selectable region for in-line links embedded in paragraph text on mobile(touch) devices
+@include media($mobile) {
+  p a {
+    margin: -.5em;
+    padding: .5em;
+    position: relative;
   }
 }

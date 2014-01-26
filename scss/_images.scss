@@ -1,8 +1,7 @@
 img {
-  width: 100%;
   max-width: 100%;
-  image-rendering: -moz-crisp-edges; // Makes images in firefox look sharp
-  image-rendering: -webkit-optimize-contrast; // Optimizes image contrast in webkit
-  image-rendering: crisp-edges; // Prefixless standard for sharp images
-  vertical-align: middle; // Removes the gap between images and the bottom of their containers
+  image-rendering: -moz-crisp-edges;          // Makes images in Firefox look sharp
+  image-rendering: -webkit-optimize-contrast; // Optimizes image contrast in Webkit
+  image-rendering: crisp-edges;               // Prefix-less standard for sharp images
+  vertical-align: middle;                     // Removes the gap between images and the bottom of their containers
 }

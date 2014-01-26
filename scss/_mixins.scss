@@ -1,0 +1,93 @@
+$prefix-for-webkit:    true !default;
+$prefix-for-mozilla:   true !default;
+$prefix-for-microsoft: true !default;
+$prefix-for-opera:     true !default;
+$prefix-for-spec:      true !default;
+
+@mixin prefixer ($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      @if $prefix-for-webkit {
+        -webkit-#{$property}: $value;
+      }
+    }
+    @else if $prefix == moz {
+      @if $prefix-for-mozilla {
+        -moz-#{$property}: $value;
+      }
+    }
+    @else if $prefix == ms {
+      @if $prefix-for-microsoft {
+        -ms-#{$property}: $value;
+      }
+    }
+    @else if $prefix == o {
+      @if $prefix-for-opera {
+        -o-#{$property}: $value;
+      }
+    }
+    @else if $prefix == spec {
+      @if $prefix-for-spec {
+        #{$property}: $value;
+      }
+    }
+    @else  {
+      @warn "Unrecognized prefix: #{$prefix}";
+    }
+  }
+}
+
+@mixin transition ($properties...) {
+  @if length($properties) >= 1 {
+    @include prefixer(transition, $properties, webkit moz spec);
+  }
+
+  @else {
+    $properties: all 0.15s ease-out 0s;
+    @include prefixer(transition, $properties, webkit moz spec);
+  }
+}
+
+@mixin transform($property: none) {
+  @include prefixer(transform, $property, webkit moz ms o spec);
+}
+
+@function new-breakpoint($query:$feature $value $columns, $total-columns: $grid-columns) {
+  @if length($query) == 1 {
+    $query: $default-feature nth($query, 1) $total-columns;
+  }
+  @else if length($query) == 2 or length($query) == 4 {
+    $query: append($query, $total-columns);
+  }
+  @if not belongs-to($query, $visual-grid-breakpoints) {
+    $visual-grid-breakpoints: append($visual-grid-breakpoints, $query, comma);
+  }
+  @return $query;
+}
+
+$default-feature: min-width;
+
+@mixin media($query:$feature $value) {
+  @if length($query) == 1 {
+    @media screen and ($default-feature: nth($query, 1)) { @content; }
+  }
+  @else if length($query) == 2 {
+    @media screen and (nth($query, 1): nth($query, 2)) { @content; }
+  }
+  @else if length($query) == 3 {
+    @media screen and (nth($query, 1): nth($query, 2)) { @content; }
+  }
+  @else if length($query) == 4 {
+    @media screen and (nth($query, 1): nth($query, 2)) and (nth($query, 3): nth($query, 4)) { @content; }
+  }
+}
+
+@function new-breakpoint($query:$feature $value) {
+  @if length($query) == 1 {
+    $query: $default-feature nth($query, 1);
+  }
+  @else if length($query) == 2 or length($query) == 4 {
+    $query: $query;
+  }
+  @return $query;
+}

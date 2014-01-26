@@ -4,38 +4,44 @@
 //// COLOR PALETTE ////
 @import "scss/colors";
 
-//// GRID SYSTEM ////
-@import "bourbon/bourbon";
-@import "scss/grid-settings";
-@import "neat/neat";
-@import "scss/layout";
+//// MIXINS ////
+@import "scss/mixins";
 
-//// TYPOGRAPHY ////
+//// RESPONSIVENESS ////
+@import "scss/breakpoints";
+@import "scss/device-conditionals";
+
+//// TYPE ////
 @import "scss/font";
+@import "scss/modular-scale";
 @import "scss/typography";
 @import "scss/links";
 
+//// GRID SYSTEM ////
+@import "scss/layout";
+
+//// BUTTONS ////
+
 //// FORMS ////
-@import "scss/form-settings";
-@import "scss/forms";
-@import "scss/buttons";
 
-//// IMAGES ////
+//// RICH MEDIA ////
 @import "scss/images";
-
-//// VIDEO ////
 @import "scss/videos";
 
 //// MENU ////
-@import "scss/menu-settings";
 @import "scss/menu";
 
+//// SELECTOR ////
+@import "scss/selector";
+
 //// UTILITY ////
-@import "scss/device-conditionals";
-@import "scss/padding-utility";
+// @import "scss/padding-utility";
 @import "scss/margin-utility";
-@import "scss/text-utility";
-@import "scss/font-utility";
+// @import "scss/text-utility";
+// @import "scss/font-utility";
+
+//// PRINT MEDIA ////
+@import "scss/print";
 
 //// OVERRIDES ////
 @import "scss/fixes";

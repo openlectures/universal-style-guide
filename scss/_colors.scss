@@ -1,26 +1,29 @@
 //// HEX CODES ////
+$teal:    #33CCCC;
+$salmon:  #FF6666;
+$lime:    #CCFF66;
 
-$cantaloupe:  #FC6;
-$honeydew:    #CF6;
-$accent:      #3CC;
-$salmon:      #F66;
-$silver:      #CCC;
-$complement:  #333;
-$background-color: #FFF;
+// BACKGROUND //
+$color--background__body:       #FFFFFF;
+$color--background__selector:   #F4F4F4;
+$color--background__menu:       $teal;
 
-//// TEXT-COLOR MODIFIERS ////
+// BACKGROUND-COLOR MODIFIERS //
+%color--background__body      { background-color: $color--background__body;     }
+%color--background__selector  { background-color: $color--background__selector; }
+%color--background__menu      { background-color: $color--background__menu;     }
 
-.text--cantaloupe { color: $cantaloupe; }
-.text--honeydew   { color: $honeydew; }
-.text--accent     { color: $accent; }
-.text--salmon     { color: $salmon; }
-.text--silver     { color: $silver; }
+// TEXT //
+$color--text__header: #333333;
+$color--text__body:   #444444;
+$color--text__accent: #888888;
 
-//// BACKGROUND-COLOR MODIFIERS ////
+$color--link__normal: $teal;
+$color--link__hover:  darken($teal,15%);
 
-.bg--cantaloupe { background-color: $cantaloupe; }
-.bg--honeydew   { background-color: $honeydew; }
-.bg--accent     { background-color: $accent; }
-.bg--salmon     { background-color: $salmon; }
-.bg--silver     { background-color: $silver; }
-.bg--complement { background-color: $complement; }
+// TEXT-COLOR MODIFIERS //
+%color--text__header  { color: $color--text__header;  }
+%color--text__body    { color: $color--text__body;    }
+%color--text__accent  { color: $color--text__accent;  }
+%color--link__normal  { color: $color--link__normal;  }
+%color--link__hover   { color: $color--link__hover;   }
