@@ -88,12 +88,17 @@ blockquote {
 %text--right  { text-align: right; }
 
 // FONT SIZES //
-%font--size__1 { font-size: 1rem; }
-%font--size__2 { font-size: 1.5rem; }
-%font--size__3 { font-size: 3.3rem; }
-%font--size__4 { font-size: 4rem; }
-%font--size__5 { font-size: 5rem; }
-%font--size__6 { font-size: 6rem; }
-%font--size__7 { font-size: 7rem; }
-%font--size__8 { font-size: 8rem; }
-%font--size__9 { font-size: 9rem; }
+// Generated from http://modularscale.com/scale/?px1=16&px2=33&ra1=1.618&ra2=0
+%font--size__07  { font-size: 0.7791rem; }
+%font--size__09  { font-size: 0.9889rem; }
+%font--size__12  { font-size: 1.2606rem; }
+%font--size__16  { font-size: 1.6000rem; }
+%font--size__20  { font-size: 2.0396rem; }
+%font--size__25  { font-size: 2.5888rem; }
+%font--size__33  { font-size: 3.3000rem; }
+%font--size__41  { font-size: 4.1887rem; }
+%font--size__53  { font-size: 5.3394rem; }
+%font--size__67  { font-size: 6.7773rem; }
+%font--size__86  { font-size: 8.6391rem; }
+%font--size__109 { font-size: 10.9657rem; }
+%font--size__139 { font-size: 13.9781rem; }

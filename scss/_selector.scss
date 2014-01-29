@@ -41,7 +41,7 @@
 }
 
 .selector--block__title,.selector--header__title {
-  @extend %font--size__3;
+  @extend %font--size__33;
   @extend %margin--0;
 }
 
@@ -56,14 +56,14 @@
 
 .selector--header__category {
   text-transform: uppercase;
-  @extend %font--size__2;
+  @extend %font--size__20;
   letter-spacing: 0;
   @extend %margin--0;
 }
 
 .selector--block__author {
   @extend %font--ptsans;
-  @extend %font--size__2;
+  @extend %font--size__16;
   @extend %color--text__accent;
 
   margin-bottom: 0;
