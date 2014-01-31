@@ -66,6 +66,14 @@
     flex: 1;
     justify-content: center;
     flex-direction: column;
+
+    @include transition(all 150ms ease-in-out);
+
+    &:hover {
+      @include transition(all 150ms ease-in-out);
+      @extend %color--background__selector;
+      @extend %color--text__accent;
+    }
   }
 
   &.active {
