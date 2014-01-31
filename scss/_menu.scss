@@ -1,33 +1,43 @@
 .menu {
   @extend %color--background__menu;
 
-  height: 100%;
-  max-height: 100%;
+  height     : 100%;
+  max-height : 100%;
 
   // (Screen Width)/(1.618^4)
   width: calc(100%/6.85352607);
 }
 
 .menu--logo {
-  display: flex;
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  flex: 1;
 
   // (Screen Height)/(9)
-  height: 22.2vh;
-  max-height: 22.2vh;
+  height     : 22.2vh;
+  max-height : 22.2vh;
 
-  padding-left: calc(100%/6);
-  padding-right: calc(100%/6);
+  padding-left  : calc(100%/6);
+  padding-right : calc(100%/6);
 
   & > img {
-    display: block;
-    width: 85%;
-    vertical-align: middle;
-    margin: 0 auto;
+    display        : block;
+    width          : 85%;
+    vertical-align : middle;
+    margin         : 0 auto;
   }
 }
 
 .menu > li {
-  display: flex;
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  flex: 1;
 
   @extend %font--miso;
   @extend %font--size__41;
@@ -36,8 +46,8 @@
 
   text-transform: uppercase;
 
-  height: 11.1vh;
-  max-height: 11.1vh;
+  height     : 11.1vh;
+  max-height : 11.1vh;
 
   border-bottom: 22.25px solid $teal;
 
@@ -45,11 +55,17 @@
     width: 100%;
     color: #fff;
 
-    padding-left: calc(100%/6);
-    padding-right: calc(100%/6);
+    padding-left  : calc(100%/6);
+    padding-right : calc(100%/6);
 
-    // 0.75*(Screen Height)/9
-    line-height: 8.33vh;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    flex: 1;
+    justify-content: center;
+    flex-direction: column;
   }
 
   &.active {
