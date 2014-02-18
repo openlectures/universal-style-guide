@@ -22,6 +22,10 @@ main {
   overflow-y: scroll;
 }
 
+article:not(:last-of-type) {
+  margin-bottom: 22.2vh;
+}
+
 .main--video {
   @extend %video--responsiveWrapper;
 }
@@ -31,6 +35,7 @@ main {
   padding-right: calc(100%/9);
 
   padding-top: 8.33vh;
+  padding-bottom: 8.33vh;
 }
 
 .main--title {
@@ -45,7 +50,7 @@ main {
   @extend %font--roboto;
   @extend %font--size__16;
 
-  margin-bottom: 11.1vh;
+  // margin-bottom: 11.1vh;
   line-height: 1.618;
 }
 
