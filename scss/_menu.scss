@@ -9,6 +9,8 @@
 }
 
 .menu--logo {
+  @extend %show-computer;
+
   display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
   display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
   display: -ms-flexbox;      /* TWEENER - IE 10 */
@@ -31,6 +33,14 @@
   }
 }
 
+.menu--icon {
+  @extend %show-tablet;
+}
+
+.menu--text {
+  @extend %show-computer;
+}
+
 .menu > li {
   display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
   display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
@@ -49,7 +59,7 @@
   height     : 11.1vh;
   max-height : 11.1vh;
 
-  border-bottom: 22.25px solid $teal;
+  // border-bottom: 22.25px solid $teal;
 
   & a {
     width: 100%;
