@@ -4,8 +4,8 @@ html {
 
   // Force this down to 10px so all our rem declarations below are straightforward multiples of 10
   @include media($computer)  { font-size: 10px;  }
-  @include media($tablet)   { font-size: 9px;   }
-  @include media($mobile)   { font-size: 8px;   }
+  @include media($tablet)    { font-size: 9px;   }
+  @include media($mobile)    { font-size: 8px;   }
 }
 
 ::-moz-selection {
@@ -25,7 +25,7 @@ h1,h2,h3,h4,h5,h6 {
 
   // Standardize font-sizes for all heading elements so we can assign semantic meaning
   // without worrying about font-size changes. Font-size should be assigned separately.
-  font-size:    1rem;
+  @include font-size(1);
   line-height:  1;
 }
 
@@ -89,16 +89,16 @@ blockquote {
 
 // FONT SIZES //
 // Generated from http://modularscale.com/scale/?px1=16&px2=33&ra1=1.618&ra2=0
-%font--size__07  { font-size: 0.7791rem; }
-%font--size__09  { font-size: 0.9889rem; }
-%font--size__12  { font-size: 1.2606rem; }
-%font--size__16  { font-size: 1.6000rem; }
-%font--size__20  { font-size: 2.0396rem; }
-%font--size__25  { font-size: 2.5888rem; }
-%font--size__33  { font-size: 3.3000rem; }
-%font--size__41  { font-size: 4.1887rem; }
-%font--size__53  { font-size: 5.3394rem; }
-%font--size__67  { font-size: 6.7773rem; }
-%font--size__86  { font-size: 8.6391rem; }
-%font--size__109 { font-size: 10.9657rem; }
-%font--size__139 { font-size: 13.9781rem; }
+%font--size__07  { @include font-size(0.7791); }
+%font--size__09  { @include font-size(0.9889); }
+%font--size__12  { @include font-size(1.2606); }
+%font--size__16  { @include font-size(1.6000); }
+%font--size__20  { @include font-size(2.0396); }
+%font--size__25  { @include font-size(2.5888); }
+%font--size__33  { @include font-size(3.3000); }
+%font--size__41  { @include font-size(4.1887); }
+%font--size__53  { @include font-size(5.3394); }
+%font--size__67  { @include font-size(6.7773); }
+%font--size__86  { @include font-size(8.6391); }
+%font--size__109 { @include font-size(10.9657); }
+%font--size__139 { @include font-size(13.9781); }

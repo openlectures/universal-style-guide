@@ -1,0 +1,115 @@
+#logo--animate {
+  fill: none;
+  stroke: #33CCCC;
+  stroke-width: 1.618;
+  stroke-dasharray: 2200;
+  stroke-dashoffset: 2200;
+
+  -webkit-animation: draw 3s linear forwards, fadeToFill 2s 1s linear forwards;
+     -moz-animation: draw 3s linear forwards, fadeToFill 2s 1s linear forwards;
+      -ms-animation: draw 3s linear forwards, fadeToFill 2s 1s linear forwards;
+       -o-animation: draw 3s linear forwards, fadeToFill 2s 1s linear forwards;
+          animation: draw 3s linear forwards, fadeToFill 2s 1s linear forwards;
+}
+
+@include keyframes(draw) {
+  0%   { stroke-dashoffset: 2200; }
+  100% { stroke-dashoffset: 0;}
+}
+
+@include keyframes(fadeToFill) {
+  0%   { stroke-opacity: 1; fill-opacity: 0; fill: #33CCCC;}
+  100% { stroke-opacity: 0; fill-opacity: 1; fill: #33CCCC;}
+}
+
+.view--home {
+  flex-direction: column;
+}
+
+.home--logo {
+  display: block;
+
+  margin: 0 auto;
+  margin-top: 11.1vh;
+}
+
+.home--menu__container {
+  @extend %color--background__menu;
+
+  display: flex;
+  width: 100%;
+}
+
+.home--menu__items {
+  @extend %font--miso;
+  @extend %font--size__33;
+
+  color: #fff;
+
+  margin: 0 auto;
+  padding: 0;
+
+  list-style: none;
+  display: block;
+  height: 5.55vh;
+
+  & li {
+    // TODO: Fix baseline
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 8.09rem;
+    }
+  }
+}
+
+.home--search {
+  @extend %font--miso;
+  @extend %font--size__33;
+  @extend %color--link__normal;
+  @extend %text--center;
+
+  outline: none;
+  background: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+
+  padding: 0.1618rem;
+  margin: 5.55vh auto;
+  width: 33.3vw;
+
+  border: 0.25rem solid $teal;
+  text-overflow: ellipsis;
+
+}
+
+[placeholder]::-webkit-input-placeholder {
+  @extend %color--link__normal;
+  @include transition(opacity 300ms linear);
+  @include opacity(1);
+}
+
+[placeholder]:focus::-moz-placeholder {
+  @include transition(opacity 300ms linear);
+  @include opacity(1);
+}
+
+[placeholder]:focus:-ms-input-placeholder {
+  @include transition(opacity 300ms linear);
+  @include opacity(1);
+}
+
+[placeholder]:focus::-webkit-input-placeholder {
+  @include transition(opacity 300ms linear);
+  @include opacity(0.2);
+}
+
+[placeholder]:focus::-moz-placeholder {
+  @include transition(opacity 300ms linear);
+  @include opacity(0.2);
+}
+
+[placeholder]:focus:-ms-input-placeholder {
+  @include transition(opacity 300ms linear);
+  @include opacity(0.2);
+}
