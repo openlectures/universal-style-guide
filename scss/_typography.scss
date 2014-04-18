@@ -56,7 +56,7 @@ ul, ol {
 // CODE AND PREFORMATTED TEXT //
 pre, code {
   @extend %color--text__body;
-  @extend %font--sourcecodepro;
+  // @extend %font--sourcecodepro;
 
   display: block;
   overflow-x: scroll;

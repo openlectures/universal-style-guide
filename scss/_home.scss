@@ -31,6 +31,9 @@
 
   margin: 0 auto;
   margin-top: 11.1vh;
+
+  min-height: 35em;
+  height: 35em;
 }
 
 .home--menu__container {
@@ -38,6 +41,9 @@
 
   display: flex;
   width: 100%;
+
+  min-height: 4.5em;
+  height: 4.5em;
 }
 
 .home--menu__items {
@@ -48,6 +54,7 @@
 
   margin: 0 auto;
   padding: 0;
+  padding-top: 0.25rem;
 
   list-style: none;
   display: block;
@@ -77,6 +84,9 @@
   padding: 0.1618rem;
   margin: 5.55vh auto;
   width: 33.3vw;
+
+  min-height: 1em;
+  height: 1em;
 
   border: 0.25rem solid $teal;
   text-overflow: ellipsis;
